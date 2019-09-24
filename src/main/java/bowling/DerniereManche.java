@@ -49,4 +49,17 @@ public class DerniereManche extends Manche {
     public int spareBonus(){
         return this.boule1 + this.boule2 + this.boule3;
     }
+    
+    @Override
+    public boolean isFinManche(){
+        if(this.isStricke() ^ this.isSpare() ){
+            return this.bouleAct == 3;
+        } else {
+            return this.bouleAct == 2;
+        }
+    }
+    @Override
+    public int score() {
+        return this.boule1 + this.boule2 + this.boule3;
+    }
 }

@@ -66,6 +66,19 @@ public class SinglePlayerGameTest {
 
 		assertEquals(84, game.score());
 	}
+        
+                         /*
+                          Ajout de test pour tester le fonctionnement de lancer et du changement de manche
+                        */
+                            
+                        @Test
+                        public void lancerManche1(){
+                                    assertEquals(1,game.MancheActuelle.numManche);
+                                    game.lancer(5);
+                                    assertEquals(1,game.MancheActuelle.getBouleAct());
+                                    game.lancer(4);
+                                    assertEquals(2,game.MancheActuelle.getBouleAct());
+                        }
 
 	// Quelques methodes utilitaires pour faciliter l'écriture des tests
 	private void rollMany(int n, int pins) {

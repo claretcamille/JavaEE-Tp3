@@ -103,4 +103,16 @@ public class Manche {
         }
     }
     
+    public int score() {
+       int scoreM =0 ;
+       if(this.isStricke()){
+           scoreM =10 + this.mancheSuiv.stickeBonus();
+       } else if (this.isSpare()){
+           scoreM = 10 + this.mancheSuiv.spareBonus();
+       } else {
+           scoreM = this.boule1 + this.boule2;
+       }
+       return scoreM +this.mancheSuiv.score();
+    }
+    
 }

@@ -6,11 +6,21 @@ package bowling;
  * final de ce joueur
  */
 public class SinglePlayerGame {
-
+                        
+                        Manche MancheActuelle;
+                        Manche MancheUn;
 	/**
 	 * Constructeur
 	 */
 	public SinglePlayerGame() {
+                                    MancheActuelle = new Manche();
+                                    // Incrémentation des différente manche 
+                                    for(int n = 9; n > 0; n--){
+                                               Manche manche = new Manche(n,this.MancheActuelle) ;
+                                               this.MancheActuelle = manche;          
+                                    }
+                                    this.MancheUn = this.MancheActuelle;
+           
 	}
 
 	/**
@@ -20,7 +30,14 @@ public class SinglePlayerGame {
 	 * ce lancé
 	 */
 	public void lancer(int nombreDeQuillesAbattues) {
-
+                                    if(this.MancheActuelle.isFinManche()){
+                                                // Cas des manche 1 à 9
+                                                this.MancheActuelle = this.MancheActuelle.mancheSuiv;
+                                    } else if (this.MancheActuelle.mancheSuiv == null || this.MancheActuelle.isFinManche()){
+                                                throw new UnsupportedOperationException("Le jeu est fini");
+                                    } else {
+                                                this.MancheActuelle.quilleAbbatue(nombreDeQuillesAbattues);
+                                    }
 	}
 
 	/**
@@ -29,6 +46,6 @@ public class SinglePlayerGame {
 	 * @return Le score du joueur
 	 */
 	public int score() {
-		throw new UnsupportedOperationException("Pas encore implémenté");
+                                   return this.MancheUn.score();
 	}
 }

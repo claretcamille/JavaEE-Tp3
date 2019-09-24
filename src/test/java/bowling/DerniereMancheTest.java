@@ -34,4 +34,32 @@ public class DerniereMancheTest {
        m.quilleAbbatue(5);
        assertEquals(15, m.spareBonus());
    }
+   
+   @Test
+   public void mancheFiniStricke(){
+       this.m.quilleAbbatue(10);
+       assertFalse(this.m.isFinManche());
+       this.m.quilleAbbatue(10);
+       assertFalse(this.m.isFinManche());
+       this.m.quilleAbbatue(10);
+       assertTrue(this.m.isFinManche());
+   }
+   
+    @Test
+   public void mancheFiniSpare(){
+       this.m.quilleAbbatue(8);
+       assertFalse(this.m.isFinManche());
+       this.m.quilleAbbatue(2);
+       assertFalse(this.m.isFinManche());
+       this.m.quilleAbbatue(10);
+       assertTrue(this.m.isFinManche());
+   }
+   
+   @Test
+   public void mancheFiniRien(){
+       this.m.quilleAbbatue(8);
+       assertFalse(this.m.isFinManche());
+       this.m.quilleAbbatue(1);
+       assertTrue(this.m.isFinManche());
+   }
 }
