@@ -77,7 +77,29 @@ public class MancheTest {
        m.quilleAbbatue(5);
        m.quilleAbbatue(5);
        m1.quilleAbbatue(10);
-       assertEquals(20, m.spareBonus());
+       assertEquals(10, m.spareBonus());
       
+   }
+   
+   @Test
+   public void testScoreStricke(){
+       this.m.quilleAbbatue(10);
+       this.m1.quilleAbbatue(5);
+       this.m1.quilleAbbatue(3);
+      assertEquals(28, this.m.score());
+   }
+   
+   public void testScoreSpare(){
+       this.m.quilleAbbatue(3);
+       this.m.quilleAbbatue(7);
+       this.m1.quilleAbbatue(2);
+       this.m1.quilleAbbatue(3);
+      assertEquals(12, this.m.score());
+   }
+   
+   public void testScoreNormal(){
+       this.m.quilleAbbatue(2);
+       this.m.quilleAbbatue(7);
+      assertEquals(9, this.m.score());
    }
 }

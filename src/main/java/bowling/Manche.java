@@ -80,7 +80,7 @@ public class Manche {
     }
     
     public int spareBonus(){
-        return 10 + this.mancheSuiv.boule1;
+        return  this.mancheSuiv.boule1;
     }
     
     /*
@@ -106,13 +106,13 @@ public class Manche {
     public int score() {
        int scoreM =0 ;
        if(this.isStricke()){
-           scoreM =10 + this.mancheSuiv.stickeBonus();
+           scoreM = 10 + this.stickeBonus();
        } else if (this.isSpare()){
-           scoreM = 10 + this.mancheSuiv.spareBonus();
+           scoreM = this.spareBonus();
        } else {
            scoreM = this.boule1 + this.boule2;
        }
-       return scoreM +this.mancheSuiv.score();
+       return scoreM;
     }
     
 }

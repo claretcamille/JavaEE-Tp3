@@ -62,4 +62,27 @@ public class DerniereMancheTest {
        this.m.quilleAbbatue(1);
        assertTrue(this.m.isFinManche());
    }
+   
+   @Test 
+   public void calculSoreTroisStickes(){
+       this.m.quilleAbbatue(10);
+       this.m.quilleAbbatue(10);
+       this.m.quilleAbbatue(10);
+       assertEquals(30,this.m.score());
+   }
+   
+   @Test 
+   public void calculSoreSpare(){
+       this.m.quilleAbbatue(5);
+       this.m.quilleAbbatue(5);
+       this.m.quilleAbbatue(5);
+       assertEquals(15,this.m.score());
+   }
+   
+   @Test 
+   public void calculSoreDeuxBoules(){
+       this.m.quilleAbbatue(5);
+       this.m.quilleAbbatue(2);
+       assertEquals(7,this.m.score());
+   }
 }

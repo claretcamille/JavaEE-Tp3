@@ -9,6 +9,7 @@ public class SinglePlayerGame {
                         
                         Manche MancheActuelle;
                         Manche MancheUn;
+                       int scoreT = 0;
 	/**
 	 * Constructeur
 	 */
@@ -27,16 +28,17 @@ public class SinglePlayerGame {
 	 * Cette méthode doit être appelée à chaque lancé de boule
 	 *
 	 * @param nombreDeQuillesAbattues le nombre de quilles abattues lors de
-	 * ce lancé
+	 * ce lancé 
 	 */
 	public void lancer(int nombreDeQuillesAbattues) {
                                     if(this.MancheActuelle.isFinManche()){
                                                 // Cas des manche 1 à 9
                                                 this.MancheActuelle = this.MancheActuelle.mancheSuiv;
-                                    } else if (this.MancheActuelle.mancheSuiv == null || this.MancheActuelle.isFinManche()){
-                                                throw new UnsupportedOperationException("Le jeu est fini");
-                                    } else {
+                                                
+                                    } else if (this.MancheActuelle.mancheSuiv != null ){
                                                 this.MancheActuelle.quilleAbbatue(nombreDeQuillesAbattues);
+                                    } else {
+                                                throw new UnsupportedOperationException("Le jeu est fini");
                                     }
 	}
 
@@ -46,6 +48,6 @@ public class SinglePlayerGame {
 	 * @return Le score du joueur
 	 */
 	public int score() {
-                                   return this.MancheUn.score();
+                                    return this.MancheUn.score() ;
 	}
 }
